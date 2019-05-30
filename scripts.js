@@ -19,9 +19,9 @@
 
 			var index = parseFloat($(rows[i]).find('td.number').html());
 
-			var name = $(cells[0]).find('input.index_name').val();
-			var base = $(cells[1]).find('input.base').val();
-			var report = $(cells[2]).find('input.report').val();
+			var name = $(cells[1]).find('input.index_name').val();
+			var base = $(cells[2]).find('input.base').val();
+			var report = $(cells[3]).find('input.report').val();
 
 			base = !base ? 0 : base;
 			report = !report ? 0 : report;			
@@ -35,6 +35,7 @@
 		if (!data.length) {
 			return 0;
 		}
+		console.log(data);
 		return data;
 	}
 
@@ -52,6 +53,7 @@
 			data[i].report_weight = InPercents(data[i].report, data[i].base);
 			data[i].changes_percent = InPercents(data[i].changes, staticProfit);
 		}
+
 		return data;
 	}
 
