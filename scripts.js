@@ -1,10 +1,13 @@
 ﻿$(document).ready(function (argument) {
 
 	var table = $('#main');
-	var rowTemplate = '<tr class="record"><td><input type="text" readonly="readonly" class="form-control index_name"></td><td><input type="number" readonly="readonly" class="form-control base"></td><td><input type="number" readonly="readonly" class="form-control report"></td><td class="changes"></td><td class="base_weight"></td><td class="report_weight"></td><td class="changes_percent"></td><td class="control"><span class="btn btn-danger dropRow">X</span></td></tr>';
+	var number = 1;
+	
 
 	$("body").on('click', '#addrecord', function(){
+		var rowTemplate = '<tr class="record"><td class="number">'+number+'</td><td><input type="text" readonly="readonly" class="form-control index_name"></td><td><input type="number" readonly="readonly" class="form-control base"></td><td><input type="number" readonly="readonly" class="form-control report"></td><td class="changes"></td><td class="base_weight"></td><td class="report_weight"></td><td class="changes_percent"></td><td class="control"><span class="btn btn-danger dropRow">X</span></td></tr>';
 		$(table).append(rowTemplate);
+		number++;
 	});
 
 	function GetTableData() {
@@ -14,6 +17,8 @@
 			var record = {};
 			var cells = $(rows[i]).find('td');
 
+			var index = parseFloat($(rows[i]).find('td.number').html());
+
 			var name = $(cells[0]).find('input.index_name').val();
 			var base = $(cells[1]).find('input.base').val();
 			var report = $(cells[2]).find('input.report').val();
@@ -21,6 +26,7 @@
 			base = !base ? 0 : base;
 			report = !report ? 0 : report;			
 
+			record.index = index;
 			record.name = name;
 			record.base = base;
 			record.report = report;
@@ -69,8 +75,6 @@
 
 		for(var i = 0; i < data.length; i++){
 
-			var cells = $(rows[i]).find('td');
-
 			for(var j = 0; j < cells.length; j++){
 				var indexType = $(cells[j]).attr('class');
 
@@ -110,8 +114,23 @@
 	});
 
 	$("body").on('click', '.dropRow', function(){
+		//remove row
 		var row = $(this).closest('tr');
+		var index = parseFloat($(row).find('td.number').html());
 		$(row).remove();
+		//updete indexes
+		var indexes = $('#main').find('td.number');
+		for(var i = 0; i < indexes.length; i++){
+			$(indexes[i]).html(i+1);
+		}
+		var rows = $('#main').find('tr.record')
+		var isEmpty = rows.length > 0 ? false : true;
+		if(isEmpty){
+			number = 1;
+		} else {
+			number = parseFloat($(rows[rows.length-1]).find('td.number').html()) + 1;
+		}
+
 	});
 
 	$("body").on('blur', 'input.form-control', function(){
