@@ -1,0 +1,12 @@
+table, tr, td {
+	border: 1px solid;
+	padding: 5px;
+	text-align: center;
+}
+#main{
+	margin: 0 auto;
+}
+table{
+	margin: 10px;
+	width: 100%;
+}

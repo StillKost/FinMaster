@@ -2,8 +2,34 @@
 <html>
 <head>
     <title>FinMaster</title>
+	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="scripts.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-
+	<div class="container">
+		<h1 align="center">
+			Горизонтальный анализ отчета о финансовых результатах
+		</h1>
+		<table id="main">
+			<tr>
+				<td>Показатели</td>
+				<td>Базисный период</td>
+				<td>Отчетный период</td>
+				<td>Отклонения (+/-)</td>
+				<td>Удельный вес (Базисный период)</td>
+				<td>Удельный вес (Отчетный период)</td>
+				<td>Изменения в %</td>
+			</tr>
+		</table>
+		<br>
+		<div class="btn-group">
+			<a href="#" id="addrecord" class="btn btn-primary">Добавить запись</a>
+			<a href="#" id="calculate" class="btn btn-success">Выполнить расчеты</a>
+		</div>	
+		<!-- <button id="TEST">TEST</button>	 -->
+	</div>
 </body>
 </html>
+
