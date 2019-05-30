@@ -74,7 +74,7 @@
 		var rows = $('#main').find('tr.record');
 
 		for(var i = 0; i < data.length; i++){
-
+			var cells = $(rows[i]).find('td');
 			for(var j = 0; j < cells.length; j++){
 				var indexType = $(cells[j]).attr('class');
 
