@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>FinMaster</title>
+    <meta charset="utf-8">
 	<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="scripts.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -30,6 +31,28 @@
 			<a href="#" id="calculate" class="btn btn-success">Выполнить расчеты</a>
 		</div>	
 		<!-- <button id="TEST">TEST</button>	 -->
+		<h1 align="center">
+			Вертикальный анализ отчета о финансовых результатах
+		</h1>
+		<table id="main2">
+			<tr>
+				<td rowspan="2">№</td>
+				<td rowspan="2">Показатели</td>
+				<td colspan="2">Базисный период</td>
+				<td colspan="2">Отчетный период</td>
+			</tr>
+			<tr>
+				<td>Сумма</td>
+				<td>% к итогу</td>
+				<td>Сумма</td>
+				<td>% к итогу</td>
+			</tr>
+		</table>
+		<br>
+		<div class="btn-group">
+			<a href="#" id="addrecord2" class="btn btn-primary">Добавить запись</a>
+			<a href="#" id="calculate2" class="btn btn-success">Выполнить расчеты</a>
+		</div>
 	</div>
 </body>
 </html>
